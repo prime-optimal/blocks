@@ -1,27 +1,19 @@
-{{/* My Custom Block */}}
+{{/* Wowchemy Blocks: Markdown */}}
+{{/* Documentation: https://wowchemy.com/blocks/ */}}
+{{/* License: https://github.com/wowchemy/wowchemy-hugo-themes/blob/main/LICENSE.md */}}
 
-{{/* Get variables */}}
+{{/* Initialise */}}
 {{ $page := .wcPage }}
 {{ $block := .wcBlock }}
+{{ $columns := $block.design.columns | default "1" }}
+{{ $text := $block.content.text | emojify | $page.RenderString }}
 
-{{/* Add your block layout below */}}
-{{/* Styles can be added to the SCSS file */}}
-{{/* Access custom front matter options via $block.Params  */}}
-{{/* E.g. mytext via $block.Params.mytext */}}
-
-
-
-<div id="profile">
-
-<h2>{{$block.Title}}</h2>
-
-<p>{{$block.Content}}</p>
-<p>This is a test</p>
-  {{ if $avatar }}
-  <div class="avatar-wrapper">
-    {{ $avatar_image := $avatar.Fill "150x150 Center" }}
-    <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="{{ $avatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
-         width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}">
-    {{with $person.status.icon}}<span class="avatar-emoji">{{.|emojify}}</span>{{end}}
+{{ if ne $columns "1" }}
+  <div class="col-12 col-lg-8">
+    {{ $text }}
   </div>
-  {{ end }}
+{{ else }}
+  <div class="col-12">
+    {{ $text }}
+  </div>
+{{ end }}
