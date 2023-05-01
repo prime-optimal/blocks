@@ -13,3 +13,15 @@
 
 <p>{{$block.Content}}</p>
 <p>This is a test</p>
+
+
+<div id="profile">
+
+  {{ if $avatar }}
+  <div class="avatar-wrapper">
+    {{ $avatar_image := $avatar.Fill "150x150 Center" }}
+    <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="{{ $avatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
+         width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}">
+    {{with $person.status.icon}}<span class="avatar-emoji">{{.|emojify}}</span>{{end}}
+  </div>
+  {{ end }}
