@@ -9,14 +9,14 @@
 {{/* Access custom front matter options via $block.Params  */}}
 {{/* E.g. mytext via $block.Params.mytext */}}
 
-<h2>{{$block.Title}}</h2>
-
-<p>{{$block.Content}}</p>
-<p>This is a test</p>
 
 
 <div id="profile">
 
+<h2>{{$block.Title}}</h2>
+
+<p>{{$block.Content}}</p>
+<p>This is a test</p>
   {{ if $avatar }}
   <div class="avatar-wrapper">
     {{ $avatar_image := $avatar.Fill "150x150 Center" }}
