@@ -1,3 +1,3 @@
-module github.com/prime-optimal/hugo-block-symmetrical-fiesta
+module github.com/prime-optimal/wowchemy-block-video
 
 go 1.19
