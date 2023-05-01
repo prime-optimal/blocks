@@ -1,3 +1,3 @@
-module github.com/prime-optimal/wowchemy-block-video
+module github.com/prime-optimal/blocks
 
 go 1.19
